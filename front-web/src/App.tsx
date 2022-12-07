@@ -1,6 +1,7 @@
 import './App.css';
 import Filter from './components/filter';
 import Header from './components/header';
+import PieChartCard from './components/pie-chart-card';
 import SalesByDate from './components/sales-by-date';
 import SalesSummary from './components/sales-summary';
 
@@ -10,11 +11,15 @@ function App() {
       <Header />
       <div className="app-container">
         <Filter />
-        <SalesByDate></SalesByDate>
+        <SalesByDate />
         <div className='sales-overview-container'>
-        <SalesSummary></SalesSummary>
+        <SalesSummary />
+        <PieChartCard name='Lojas' labels={['Uberlandia', 'Araguari', 'São Paulo']}
+         series={[40, 30, 30]} />
+          <PieChartCard name='Pagamento' labels={['Credito', 'Debito', 'Dinheiro']}
+         series={[20, 50, 30]} />
+       
         </div>
-        
       </div>
     </>
   );
