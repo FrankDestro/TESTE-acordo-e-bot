@@ -1,3 +1,4 @@
+import { SalesByDate } from './../../types';
 import { ApexOptions } from 'apexcharts';
 
 export const chartOptions = {
@@ -50,3 +51,19 @@ export const chartOptions = {
     }
   }
 } as ApexOptions;
+
+  // INTEGRAÇÃO BACKEND GRAFICO
+export const buildChartSeries = (salesByDate: SalesByDate[] = []) => {
+    return salesByDate.map(({date, sum}) => ({
+      x: date,
+      y: sum
+    }));
+};
+
+  // INTEGRAÇÃO BACKEND SOMA DE TODAS AS VENDAS
+
+export const SumSalesByDate = (salesByDate: SalesByDate[] = []) => {
+  return salesByDate.reduce((previousValue, currentValue) => {
+    return previousValue + currentValue.sum;
+  }, 0);
+}
